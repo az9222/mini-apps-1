@@ -2,24 +2,26 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
-// import $ from 'jquery';
+//import the function from app.js
 
 //point express to client folder and it will automatically start serving up those files (these files in this folder are static assets). Now by default, express will look for a file called index.html and serve that file whenever you browse to the root '/' route
 app.use(express.static('./client'));
 
 //function to invoke in middleware to parse our posted data
-// var urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(bodyParser.urlencoded())
+// parse application/json
+// app.use(bodyParser.text())
 
 app.post('/post', (req, res) => {
     if (!req.body) {
         return res.status(404).send(err);
     } 
+    // return res.send(results);
     console.log('response', req.body);
-    // res.send('response', req.body);
-    // res.send('contact-success', {data: req.body});
+    //take the req.body, pass it as input into the function and then res.send back
 })
 
+app.post('/', (req, res) )
 
 // var searchYouTube = (options, callback) => {
 //     $.ajax ({
