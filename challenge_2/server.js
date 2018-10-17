@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = process.env.port || 3000;
 const bodyParser = require('body-parser');
-const testFunc = require('./client/app.js');
+const testFunc = require('./helper.js');
 
 //point express to client folder and it will automatically start serving up those files (these files in this folder are static assets). Now by default, express will look for a file called index.html and serve that file whenever you browse to the root '/' route
 app.use(express.static('./client'));
