@@ -1,16 +1,14 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.port || 3000;
 const bodyParser = require('body-parser');
-//import the function from app.js
+const testFunc = require('./client/app.js');
 
 //point express to client folder and it will automatically start serving up those files (these files in this folder are static assets). Now by default, express will look for a file called index.html and serve that file whenever you browse to the root '/' route
 app.use(express.static('./client'));
 
-//function to invoke in middleware to parse our posted data
+//function to invoke in middleware to parse our posted data. The data we get from forms is url data so we parse it. 
 app.use(bodyParser.urlencoded())
-// parse application/json
-// app.use(bodyParser.text())
 
 app.post('/post', (req, res) => {
     if (!req.body) {
@@ -18,10 +16,8 @@ app.post('/post', (req, res) => {
     } 
     // return res.send(results);
     console.log('response', req.body);
-    //take the req.body, pass it as input into the function and then res.send back
-})
-
-app.post('/', (req, res) )
+    res.send(testFunc.testFunc(req.body['JSON DATA'])); 
+});
 
 // var searchYouTube = (options, callback) => {
 //     $.ajax ({
