@@ -4,7 +4,7 @@ var convertJSONObjToCSV = function(jsonObj) {
   var keys = Object.keys(obj);
   for(var i = 0; i < keys.length; i++) {
     var property = keys[i];
-    if(!property !== "children") {
+    if(property !== "children") {
       csvString += property;
       if(i != keys.length - 1) {
         csvString += ","
