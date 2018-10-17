@@ -19,21 +19,27 @@ app.post('/post', (req, res) => {
     res.send(testFunc.testFunc(req.body['JSON DATA'])); 
 });
 
-// var searchYouTube = (options, callback) => {
-//     $.ajax ({
-//       url: 'https://www.googleapis.com/youtube/v3/search',
-//       type: 'GET',
-//       data: {
-//         part: 'snippet',
-//         type: 'video',
-//         q: options.query,
-//         maxResults: options.max,
-//         key: options.key
-//       },
-//       contentType: 'application/json'
-//     }).done((response) => {
-//       callback(response.items);
-//     })
-//   };
+//ajax call alternative
+// $( "#userForm" ).submit(function( event ) {
+//     // Stop form from submitting normally
+//     event.preventDefault();
+//     // Get some values from elements on the page:
+//     var $form = $( this ),
+//       username = $form.find( "input[name='username']" ).val(),
+//       url = "https://api.github.com/users/"+username+"/repos";
+//     // Send the data using post
+//     var posting = $.post( url, { s: term } );
+//     //Ajax Function to send a get request
+//     $.ajax({
+//       type: "GET",
+//       url: url,
+//       dataType:"jsonp"
+//       success: function(response){
+//           //if request if made successfully then the response represent the data
+//           $( "#result" ).empty().append( response );
+//       }
+//     });
+// });
+    
 
 app.listen(port, () => {console.log(`listening to port ${port}...`)});

@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Convert JSON to CSV!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <h1>Convert JSON to CSV</h1>
     <div class="submit-div">
-    <form method="POST" action="/post">
+    <form method="POST" action="/post" id="userForm">
         <input class="input-bar" type="text" name="JSON DATA" placeholder="JSON data">
         <input type="submit" value="Submit">
     </form>
     </div>
 
     <div class="response-container">
-        <span id="converted">Converted data:</span>
+        <span id="converted">CSV data:</span>
     </div>
 </body>
 
