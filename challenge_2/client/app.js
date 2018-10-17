@@ -1,3 +1,4 @@
+//function to convert json to csv
 var convertJSONObjToCSV = function(jsonObj) {
   var csvString = "";
   var obj = JSON.parse(jsonObj)
@@ -33,6 +34,7 @@ var convertJSONObjToCSV = function(jsonObj) {
   return csvString
 }
 
+//render conversion dynamically on page
 function testFunc(obj) {
     return `<!DOCTYPE html>
       <html lang="en">

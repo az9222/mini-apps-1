@@ -14,7 +14,6 @@ app.post('/post', (req, res) => {
     if (!req.body) {
         return res.status(404).send(err);
     } 
-    // return res.send(results);
     console.log('response', req.body);
     res.send(testFunc.testFunc(req.body['JSON DATA'])); 
 });
@@ -41,5 +40,4 @@ app.post('/post', (req, res) => {
 //     });
 // });
     
-
 app.listen(port, () => {console.log(`listening to port ${port}...`)});
