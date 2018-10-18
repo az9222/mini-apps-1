@@ -13,4 +13,9 @@ var insertAll = function(nameId, email, passwordId, addressLine1, addressLine2, 
   });
 }
 
+insertAll('a', 'a@gmail.com', '123', () => {
+  console.log('test1');
+})
+
+
 module.exports.insertAll = insertAll;
