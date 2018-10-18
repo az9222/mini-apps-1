@@ -10,11 +10,11 @@ function F1(props) {
     <form onSubmit={props.handleNextStep}>
         <label>
           Name:
-          <input type="text" name="name" />
+          <input type="text" name="nameId" />
           E-mail:
-          <input type="text" name="e-mail" />
+          <input type="text" name="email" />
           Password: 
-          <input type="password" name="password" />
+          <input type="password" name="passwordId" />
         </label>
       <input type="submit" value="Submit"/>
     </form>
@@ -28,17 +28,17 @@ function F2(props) {
       <form onSubmit={props.handleNextStep}>
           <label>
             Address line 1:
-            <input type="text" name="AddressLine1" />
+            <input type="text" name="addressLine1" />
             Line 2:
-            <input type="text" name="line2" />
+            <input type="text" name="addressLine2" />
             City:
             <input type="text" name="city" />
             State:
-            <input type="text" name="state" />
+            <input type="text" name="stateId" />
             zipCode:
             <input type="text" name="zip" />
             phoneNum
-            <input type="text" name="phone" />
+            <input type="text" name="phoneNumber" />
           </label>
         <input type="submit" value="Submit" />
       </form>
@@ -52,11 +52,11 @@ function F3(props) {
       <form onSubmit={props.handleNextStep}>
           <label>
             Credit Card Number:
-            <input type="text" name="creditCardNum" />
+            <input type="text" name="creditCardNumber" />
             Expiration Date:
-            <input type="text" name="exp-date" />
+            <input type="text" name="expirationDate" />
             CVV:
-            <input type="password" name="cvv" />
+            <input type="password" name="CVV" /> event.target.name????
           </label>
         <input type="submit" value="Submit" />
       </form>
@@ -78,7 +78,7 @@ class App extends React.Component {
         super(props);
         this.state = {
           step: 1,
-          info: {}
+          data: {name: "Angela", }
         };
     }
 
@@ -98,16 +98,18 @@ class App extends React.Component {
       e.preventDefault();
     }
 
+    //ajax request
+
     render(){
       switch(this.state.step) {
         case 1:
           return <CheckoutPage handleNextStep={this.handleNextStep.bind(this)}/>
         case 2:
-          return <F1 handleNextStep={this.handleNextStep.bind(this)}/>
+          return <F1 handleNextStep={this.handleNextStep.bind(this)} />
         case 3:
-          return <F2 handleNextStep={this.handleNextStep.bind(this)}/>
+          return <F2 handleNextStep={this.handleNextStep.bind(this)} />
         case 4:
-          return <F3 handleNextStep={this.handleNextStep.bind(this)}/>
+          return <F3 handleNextStep={this.handleNextStep.bind(this)} />
         case 5:
           return <SummaryPage handleFinishStep={this.handleFinishStep.bind(this)}/>
       }
@@ -116,9 +118,4 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, document.getElementById('app'));
 
-//checkout button that when clicked, takes me to several forms
-//F1 collects name, email, and password for account creation.
-//F2 collects ship to address (line 1, line 2, city, state, zip code) and phone number.
-//F3 F3 collects credit card #, expiry date, CVV, and billing zip code.
-//next button at each step in checkout process
-//confirmation page which summarizes data with a purchase button that completes purchase. when purchase is complete, user returns to homepage.
+//at the last page, keep track of all data and send to server

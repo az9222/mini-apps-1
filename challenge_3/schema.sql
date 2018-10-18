@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS checkout;
 CREATE database checkout;
 USE checkout;
-CREATE TABLE USERINFO (
+CREATE TABLE userinfo (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nameId TEXT,
     email TEXT,
