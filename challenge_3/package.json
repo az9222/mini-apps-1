@@ -5,12 +5,20 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server/server.js",
+    "babel": "babel client --out-dir public --presets=env,react --source-maps inline --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "mysql": "^2.16.0",
     "nodemon": "^1.18.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2"
   }
 }
